@@ -1,0 +1,88 @@
+<!-- FILEPATH: /home/behrlich/repos/aidencalculator/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiden Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            overflow-y: scroll; /* This will always show the vertical scrollbar */
+        }
+
+        .calculator {
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .display {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: right;
+            margin: 10px auto;
+            font-size: 1.2rem;
+            font-family: monospace;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .button {
+            background-color: #e9ecef;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display" id="display">12345678901234567890123456789012345678901234567890</div>
+        <div class="calculator">
+
+            <div class="buttons">
+                <div class="button" onclick="clearDisplay()">C</div>
+                <div class="button" onclick="sayIt()" style="grid-column: span 2;">Say It</div>
+                <div class="button" onclick="appendOperator('/')">/</div>
+                <div class="button" onclick="appendNumber('7')">7</div>
+                <div class="button" onclick="appendNumber('8')">8</div>
+                <div class="button" onclick="appendNumber('9')">9</div>
+                <div class="button" onclick="appendOperator('*')">*</div>
+                <div class="button" onclick="appendNumber('4')">4</div>
+                <div class="button" onclick="appendNumber('5')">5</div>
+                <div class="button" onclick="appendNumber('6')">6</div>
+                <div class="button" onclick="appendOperator('-')">-</div>
+                <div class="button" onclick="appendNumber('1')">1</div>
+                <div class="button" onclick="appendNumber('2')">2</div>
+                <div class="button" onclick="appendNumber('3')">3</div>
+                <div class="button" onclick="appendOperator('+')">+</div>
+                <div class="button" onclick="appendNumber('0')" style="grid-column: span 3;">0</div>
+                <div class="button" onclick="calculate()">=</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./index.js"></script>
+    <!--<script src="./index-test.js"></script>--> <!-- Comment this back in to run the test suite -->
+</body>
+
+</html>
