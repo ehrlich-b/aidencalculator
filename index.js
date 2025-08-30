@@ -176,7 +176,21 @@ function displayCurrentValue() {
     } else {
         element.textContent = toDisplay.toString();
     }
+    sayIt();
 }
+
+function formatBigIntWithDecimal(bigint) {
+    let str = bigint.toString();
+
+    // Ensure the string is at least 12 characters long, padding with zeros if necessary
+    // This is to handle cases where bigint is smaller and needs padding to get 10 decimal places
+    str = str.padEnd(12, '0');
+
+    // Insert the decimal point after the first digit
+    const result = str.slice(0, 1) + '.' + str.slice(1, 11);
+
+    return result;
+  }
 
 function clearDisplay() {
     currentValue = 0n;
@@ -186,7 +200,10 @@ function clearDisplay() {
 }
 
 function sayIt() {
-    // TODO: Implement the logic to say the expression
+    // getNumberName
+    // Call get number name on the current value, and display it in <div class="display" id="num_display">12345678901234567890123456789012345678901234567890</div>
+    const numDisplay = document.getElementById('num_display');
+    numDisplay.textContent = formatBigIntWithDecimal(currentValue) + " " + getNumberName(currentValue.toString().length);
 }
 
 var operator = 0n;
